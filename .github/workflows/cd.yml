@@ -1,0 +1,25 @@
+name: Deployment
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Compile resumes
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            resume.en.tex
+            resume.es.tex
+          latexmk_use_xelatex: true
+        env:
+          TEXINPUTS: "./styles:"
+      - name: Release resumes
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: resume.*.pdf
+          token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,38 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Lint all TeX sources
+        uses: xu-cheng/texlive-action/full@v1
+        with:
+          run: chktex *.tex *.cls
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Compile resumes
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: |
+            resume.en.tex
+            resume.es.tex
+          latexmk_use_xelatex: true
+        env:
+          TEXINPUTS: "./styles:"
+      - name: Upload resumes
+        uses: actions/upload-artifact@v2
+        with:
+          name: resumes
+          path: resume.*.pdf
+          retention-days: 7

@@ -1,0 +1,145 @@
+% Copyright [2022] Michel Hidalgo <hid.michel@gmail.com>
+%
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+%
+%     http://www.apache.org/licenses/LICENSE-2.0
+%
+% Unless required by applicable law or agreed to in writing, software
+% distributed under the License is distributed on an "AS IS" BASIS,
+% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+% See the License for the specific language governing permissions and
+% limitations under the License.
+
+% Local Variables:
+% coding: utf-8
+% mode: latex
+% TeX-engine: xetex
+% End:
+
+% Avoid intersentence spacing noise
+% chktex-file 13
+\documentclass[spanish, letterpaper]{resume}
+
+% Override \date with intended style
+\usepackage{datetime2}
+\renewcommand{\date}[2]{%
+  \DTMspanishMonthname{#2} #1}
+
+% Add images to path
+\usepackage{graphicx}
+\graphicspath{{./images/}}
+
+% Setup PDF metadata
+\hypersetup{%
+  pdftitle={CV de Michel Hidalgo},
+  pdfauthor={Michel Hidalgo},
+  pdfsubject={},
+  pdfcreator={XeLaTeX},
+  pdfproducer={},
+  pdfkeywords={},
+  unicode=true,
+}
+
+\begin{document}
+
+\begin{center}
+  \title{Michel Hidalgo} \\
+  Ingeniero de Software para Robótica \\
+  \address{Buenos Aires}{
+    Ciudad Autónoma de Buenos Aires,
+    Argentina} \\
+  \begin{inlined}
+    \item \github{hidmic}
+    \item \email{hid.michel@gmail.com}
+    \item \linkedin{michel-hidalgo}
+  \end{inlined}
+\end{center}
+
+\section*{Resumen}
+
+Ingeniero en Electrónica por formación pero ingeniero en Informática de profesión, con más de 9 años de experiencia desarrollando software y más de 6 años enfocado en la robótica. Fascinado por los mecanismos de percepción, actuación y toma de decisión en robótica.
+
+\section*{Conocimientos}
+
+\hfill
+\begin{minipage}{0.55\linewidth}
+  \begin{description}
+    \item[Programación] C++11/14/17, Python 3.x, C99/11.
+    \item[Robótica y Simulación] ROS, ROS 2, Drake, Gazebo, Ignition.
+    \item[Cómputo científico] Eigen, SciPy, NumPy, SymPy, Matlab.
+    \item[Integración continua] Github Actions, Gitlab CI, Jenkins.
+  \end{description}
+\end{minipage}\hfill
+\begin{minipage}{0.4\linewidth}
+  \begin{description}
+    \item[Compilación] Make, CMake, Bazel, Colcon.
+    \item[Sistemas operativos] Linux, Windows, Nuttx.
+    \item[Escritura técnica] La\TeX, Markdown, ReST.
+    \item[Bilingüe] Inglés (C1), Español (nativo).
+  \end{description}
+\end{minipage}
+\hfill
+
+\section*{Experiencia}
+
+\subsection*[\icon{ekumen}]{Ekumen \at{Buenos Aires, Argentina}}
+
+\subsubsection*{Ingeniero Senior de Software \thru{\date{2018}{9}}{Present}}
+\begin{itemize}
+  \item Lideré equipos de hasta 5 ingenieros a la vez para clientes en EE.UU.
+  \item Colaboré con OSRC en el diseño, implementación y mantenimiento de paquetes básicos de ROS 2.
+  \item Trabajé en un robot móvil basado en ROS 2 y un par de drones maritimos para investigación oceanográfica, en varios frentes: integración de IMU y GPS, localización basada en EKF, mapeo basado en Graph SLAM, y simulación con Gazebo e Ignition.
+  \item Entrevisté y fui mentor de otros ingenieros, ya sea mediante instrucción directa o en proyecto.
+\end{itemize}
+
+\subsubsection*{Ingeniero de Software \thru{\date{2015}{8}}{\date{2018}{9}}}
+\begin{itemize}
+  \item Trabajé en librerías en C++ para describir redes de caminos en simulaciones para autos autónomos.
+  \item Trabajé en robots móviles basados en ROS para la industria hotelera y gestión de inventarios, en varios frentes: localización basada en EKF y AMCL, navegación usando DWA y campos escalares, simulación con Gazebo, e instalación usando paquetes debian.
+\end{itemize}
+
+\subsection*[\icon{utn.ba}]{Universidad Tecnológica Nacional (UTN.BA) \at{Buenos Aires, Argentina}}
+
+\subsubsection*{Ayudante de cátedra \thru{\date{2019}{2}}{\date{2020}{12}}}
+\begin{itemize}
+  \item Para \textit{Técnicas Digitales III}, una materia de último año sobre arquitecturas de procesador y desarrollo de kernel.
+\end{itemize}
+
+\subsection*[\icon{minit.ar}]{Ministerio del Interior y Transporte \at{Buenos Aires, Argentina}}
+
+\subsubsection*{Ingeniero de Software \thru{\date{2012}{11}}{\date{2015}{8}}}
+\begin{itemize}
+  \item Trabajé en algunos prototipos para Transporte: una librería en C para POS SUBE, una aplicación HTML5 para pantallas de información en las estaciones, entre otros.
+  \item Hice mantenimiento de varios sistemas de gobierno, por ejemplo liquidación de sueldos y subsidios. En todos los casos, el backend era Python2.x; el frontend, PHP; y la base de datos, PostgreSQL.
+\end{itemize}
+
+\section*{Educación}
+\subsection*[\icon{utn.ba}]{Universidad Tecnológica Nacional (UTN.BA) \at{Buenos Aires, Argentina}}
+\subsubsection*{Grado en Ingeniería Electrónica \thru{\date{2012}{03}}{\date{2021}{08}}}
+\begin{itemize}
+    \item Tesina sobre el diseño e implementación de un robot diferencial para monitoreo de nivel de señal WiFi (no publicada).
+\end{itemize}
+
+\noindent\begin{minipage}[t]{0.475\linewidth}
+  \section*{Presentaciones}
+  \subsection*[\icon{ros}]{ROS World 2021}
+  \begin{itemize}
+    \item Miembro del comité de revisión del programa.
+  \end{itemize}
+  \subsection*[\icon{ros}]{ROSCon 2019 Macau}
+  \begin{itemize}
+    \item Coautor de \href{https://roscon.ros.org/2019/talks/roscon2019_composablenodes.pdf}{Composable nodes in  ROS 2}
+    \item Coautor de \href{https://roscon.ros.org/2019/talks/roscon2019_markupextensionsforros2launch.pdf}{Markup Descriptions in ROS 2 Launch}
+  \end{itemize}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.475\linewidth}
+  \section*{Proyectos}
+  \begin{description}
+    \item[\githubproject{ltitop}{hidmic/ltitop}] Herramientas para optimizar topologías LTI.
+    \item[\githubproject{$\mu$CCN}{hidmic/uccn}] Pub/sub simple para sistemas embebidos.
+  \end{description}
+\end{minipage}
+
+\end{document}
